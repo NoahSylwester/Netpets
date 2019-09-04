@@ -1,10 +1,14 @@
 // player currency
 var chippies = 200;
 
-
+var petId = 0;
+var petName = "";
+var petArr = [];
+var currentPet = 0;
 
 // this constructor creates a new netpet
-var NetPet = function(hungerRate) {
+var NetPet = function(name, hungerRate) {
+  this.name = name,
   this.hungerValue = 100;
   this.hungerRate = hungerRate;
 
@@ -28,7 +32,7 @@ var FoodItem = function(foodValue) {
 }
 
 // initialize new pet for testing
-var Brian = new NetPet(3);
+var Brian = new NetPet(Brian, 3);
 
 // create food
 var cookie = new FoodItem(10);
@@ -37,19 +41,13 @@ var cookie = new FoodItem(10);
 // feed pet with feed button
 $('#feed-button').on('click', function(event) {
   event.preventDefault();
-  Brian.feed(cookie.foodValue);
+  petArr[currentPet].feed(cookie.foodValue);
 });
 
 $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
 
-$("#pet1, #pet2, #pet3, #pet4").click(function (){
-$("#petChoose").hide();
-});
-$("#changePet").click(function (){
-$("#petChoose").show();
-});
 
 // //Storing into a variable
 // //appending rows whenever a function is pushed, this will log the time stamp
@@ -58,3 +56,49 @@ $("#petChoose").show();
 // var newRow = $('<tr>').append(
 //  $('<td>'.text(timeStamp)
 // )
+
+// pet selection
+  $("#pet1").click(function (){
+    $("#petChoose").hide();
+    $('#petName').show();
+    petId = 1;
+    $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_doux.gif"});
+    petName = $('#pet-name-input').val().trim();
+    petArr.push(new NetPet(petName, 100));
+  });
+  $("#pet2").click(function (){
+    $("#petChoose").hide();
+    $('#petName').show();
+    petId = 2;
+    $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_mort.gif"});
+    petName = $('#pet-name-input').val().trim();
+    petArr.push(new NetPet(petName, 100));
+  });
+  $("#pet3").click(function (){
+    $("#petChoose").hide();
+    $('#petName').show();
+    petId = 3;
+    $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_tard.gif"});
+    petName = $('#pet-name-input').val().trim();
+    petArr.push(new NetPet(petName, 100));
+  });
+  $("#pet4").click(function (){
+    $("#petChoose").hide();
+    $('#petName').show();
+    petId = 4;
+    $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_vita.gif"});
+    petName = $('#pet-name-input').val().trim();
+    petArr.push(new NetPet(petName, 100));
+  });
+
+  
+
+  $('#save-name').on('click', function () {
+    $("#petName").hide();
+    $("#petDisplay").show();
+  })
+
+  $("#changePet").click(function (){
+    $("#petChoose").show();
+  });
+
