@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 ​
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,42 +12,43 @@
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 ​
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-      <div class="container">
-​
-        <a class="navbar-brand" href="#">
-          <h2 style="color: #0d736e">NetPets</h2>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
-            class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Collect Chippies<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Activity Log</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="changePet" href="#">Change my Pet</a>
-            </li>
-          </ul>
-        </div>
-​
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container">
+      ​
+      <a class="navbar-brand" href="#">
+        <h2 style="color: #0d736e">NetPets</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Collect Chippies<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Activity Log</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="changePet" href="#">Change my Pet</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-​
-<displaypage id="petChoose" class="page">
+      ​
+    </div>
+  </nav>
+  ​
+  <displaypage id="petChoose" class="page">
     <div class="container" style="border: 1px solid #dedede; text-align: center">
-​
+      ​
       <div class="row mb-4">
         <div class="col-xl-12 mt-3">
           <h2>Choose Your Pet!</h2>
         </div>
       </div>
-​
+      ​
       <div class="row mx-auto">
         <div class="card mx-auto mb-5" style="width: 18rem;">
           <div class="card-body">
@@ -73,7 +75,7 @@
           </div>
         </div>
       </div>
-​
+      ​
       <div class="row mx-auto">
         <div class="card mx-auto mb-5" style="width: 18rem;">
           <div class="card-body">
@@ -101,10 +103,10 @@
         </div>
       </div>
     </div>
-</displaypage>
-​
+  </displaypage>
+  ​
 
-<displaypage id="petName" class="page">
+  <displaypage id="petName" class="page">
     <div id="namePet" class="container" style="text-align: center">
       <div class="row">
         <div class="col-xl-4">
@@ -113,7 +115,7 @@
               <h2>Name Your Pet!</h2>
             </div>
           </div>
-​
+          ​
           <div class="row mx-auto">
             <div class="card mx-auto mb-5" style="width: 18rem;">
               <div class="card-body">
@@ -122,48 +124,74 @@
                 <button id="pet1" type="button" class="btn btn-primary">Save Name</button>
               </div>
             </div>
-​
+            ​
           </div>
         </div>
       </div>
     </div>
-    
-</displaypage>
 
-<displaypage id="petDisplay" class="page">
+  </displaypage>
+
+  <displaypage id="petDisplay" class="page">
     <div class="container">
-        <div class="row">
-          <div class="pet-display text-center">
-            <img src="https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg(19 kB)
+      <div class="row">
+        <div class="pet-display text-center">
+          <img src="https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg(19 kB)
      https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg
      " alt="puppy" class="rounded">
-          </div>
         </div>
       </div>
-      <div class="fixed-bottom">
-          <div class="card text-center">
-            <div id="petControls" class="card-body">
-              <a href="#" class="btn btn-warning" id="feed-button">Feed</a>
-              <a href="#" class="btn btn-warning" id="play-button">Exercise</a>
-              <a href="#" class="btn btn-warning" id="potty-button">Potty</a>
-              <a href="#" class="btn btn-warning" id="love-button">Love</a>
-              <a href="#" class="btn btn-warning" id="sleep-button">Sleep</a>
-            </div>
-          </div>
+    </div>
+    <div class="fixed-bottom">
+      <div class="card text-center">
+        <div id="petControls" class="card-body">
+          <a href="#" class="btn btn-warning" id="feed-button">Feed</a>
+          <a href="#" class="btn btn-warning" id="play-button">Exercise</a>
+          <a href="#" class="btn btn-warning" id="potty-button">Potty</a>
+          <a href="#" class="btn btn-warning" id="love-button">Love</a>
+          <a href="#" class="btn btn-warning" id="sleep-button">Sleep</a>
         </div>
+      </div>
+    </div>
   </displaypage>
-​
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
-​
+
+  <displaypage id="petLog" class="page">
+      <div class="table-responsive container">
+    <!-- <div class="container"> -->
+      <table class="table table-hover" id="pet-care-table">
+        <thead>
+          <tr>
+            <th scope="col">Pet Care</th>
+            <th scope="col">Time Stamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Type</th>
+            <td>Time</td>
+          </tr>
+          <tr>
+            <th scope="row">Type</th>
+            <td colspan="">Time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  </displaypage>
+  ​
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
+  ​
 </body>
 ​
+
 </html>

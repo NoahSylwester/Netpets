@@ -42,6 +42,7 @@ $('#feed-button').on('click', function(event) {
 
 $('#petName').hide();
 $('#petDisplay').hide();
+$('#petLog').hide();
 
   $("#pet1, #pet2, #pet3, #pet4").click(function (){
     $("#petChoose").hide();
