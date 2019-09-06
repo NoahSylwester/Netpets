@@ -128,9 +128,23 @@ $('#feed-button').on('click' , function(event){
   var currentTime = new Date();
   database.ref().update({currentTime:currentTime})
 });
-
-// function show(id){
-// if(id == 1) {
-//   document.getElementById('feed-button').value=currentTime;
-// }
-// }
+$('#play-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#potty-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#love-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#sleep-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
