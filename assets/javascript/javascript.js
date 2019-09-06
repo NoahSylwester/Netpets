@@ -1,7 +1,7 @@
 // player currency
 var chippies = 200;
 
-var petId = 0;
+var petId = "";
 var petName = "";
 var petArr = [];
 var currentPet = 0;
@@ -62,39 +62,40 @@ $('#petStore').hide();
   $("#pet1").click(function (){
     $("#petChoose").hide();
     $('#petName').show();
-    petId = 1;
+    petId = "Doux";
     $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_doux.gif"});
-    petName = $('#pet-name-input').val().trim();
     petArr.push(new NetPet(petName, 100));
   });
   $("#pet2").click(function (){
     $("#petChoose").hide();
     $('#petName').show();
-    petId = 2;
+    petId = "Mort";
     $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_mort.gif"});
-    petName = $('#pet-name-input').val().trim();
     petArr.push(new NetPet(petName, 100));
   });
   $("#pet3").click(function (){
     $("#petChoose").hide();
     $('#petName').show();
-    petId = 3;
+    petId = "Tard";
     $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_tard.gif"});
-    petName = $('#pet-name-input').val().trim();
     petArr.push(new NetPet(petName, 100));
   });
   $("#pet4").click(function (){
     $("#petChoose").hide();
     $('#petName').show();
-    petId = 4;
+    petId = "Vita";
     $(".pet-sprite").attr({"src":"./assets/gifs/DinoSprites_vita.gif"});
-    petName = $('#pet-name-input').val().trim();
     petArr.push(new NetPet(petName, 100));
   });
 
   
 
   $('#save-name').on('click', function () {
+    petName = $('#pet-name-input').val().trim();
+    if (petName === "") {
+      petName = petId;
+    }
+    $('#pet-home-link').text(petName);
     $("#petName").hide();
     $("#petDisplay").show();
   })
