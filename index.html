@@ -27,13 +27,13 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Collect Chippies<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Activity Log<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Activity Log</a>
+            <a class="nav-link" href="#">Collect Chippies</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="changePet" href="#">Change my Pet</a>
+            <a class="nav-link" id="store" href="#">Store</a>
           </li>
         </ul>
       </div>
@@ -165,20 +165,65 @@
         <tbody>
           <tr>
             <th scope="row">Type</th>
-            <td>Time</td>
-          </tr>
-          <tr>
-            <th scope="row">Type</th>
-            <td colspan="">Time</td>
-          </tr>
-          <tr>
-            <th scope="row">Type</th>
             <td colspan="">Time</td>
           </tr>
         </tbody>
       </table>
     </div>
 
+  </displaypage>
+
+  <displaypage id="petStore" class="page">
+    <div class="container" style="text-align: center; background-color:rgba(230, 229, 227,0.3);">
+      ​
+      <div class="row mb-4">
+        <div class="col-xl-12 mt-3">
+          <h2>Buy Items For Your Pet!</h2>
+        </div>
+      </div>
+      ​
+      <div class="row mx-auto">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
+          <div class="card-body">
+            <img src="..." style="width: 12rem;" class="card-img-top" alt="...">
+            <p class="card-text">
+              <p>$5</p>
+            </p>
+            <button id="buy1" type="button" class="btn btn-warning">Buy</button>
+          </div>
+        </div>
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
+          <div class="card-body">
+            <img src="..." style="width: 12rem;" class="card-img-top" alt="...">
+            <p class="card-text">
+              <p>$5</p>
+            </p>
+            <button id="buy1" type="button" class="btn btn-warning">Buy</button>
+          </div>
+        </div>
+      </div>
+      ​
+      <div class="row mx-auto">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
+          <div class="card-body">
+            <img src="..." style="width: 12rem;" class="card-img-top" alt="...">
+            <p class="card-text">
+              <p>$5</p>
+            </p>
+            <button id="buy1" type="button" class="btn btn-warning">Buy</button>
+          </div>
+        </div>
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
+          <div class="card-body">
+            <img src="..." style="width: 12rem;" class="card-img-top" alt="...">
+            <p class="card-text">
+              <p>$5</p>
+            </p>
+            <button id="buy1" type="button" class="btn btn-warning">Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </displaypage>
 
   ​
@@ -189,6 +234,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-database.js"></script>
   <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
   ​
 </body>
