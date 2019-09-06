@@ -151,9 +151,10 @@ $('#sleep-button').on('click' , function(event){
 
 //current time stamps append to activity log in the table
 $("#feed-button").on("click" , function(table){
-var timeTable = event.timeStamp;
+var today = Date();
+var getTime = today.toString()
 var type = "";
-document.getElementById('time').innerHTML = timeTable;
+document.getElementById('time').innerHTML = getTime;
 
 if( type = 'Feed'){
  document.getElementById('type').innerHTML = type;
