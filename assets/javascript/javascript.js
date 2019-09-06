@@ -104,6 +104,31 @@ $('#petStore').hide();
     $('#petDisplay').hide();
   });
 
+// weather API calls
+var coordinates = [];
+var weatherCondition = "Clear";
+window.onload = function() {
+  var startPos;
+  var geoSuccess = function(position) {
+    startPos = position;
+    coordinates[0] = startPos.coords.latitude;
+    coordinates[1] = startPos.coords.longitude;
+    $.ajax({
+      url: `https://api.openweathermap.org/data/2.5/weather?appid=c28057a1359b867949b94e14058a8e1a&lat=${coordinates[0]}&lon=${coordinates[1]}`,
+      method: "GET"
+    }).then((response) => {
+      // possible weather conditions:
+      // "Clear" -- sunny
+      // "Clouds" -- cloudy
+      // "Snow"
+      // "Rain" or "Drizzle"
+      // "Thunderstorm"
+      weatherCondition = response.weather[0].main;
+    });
+  };
+  navigator.geolocation.getCurrentPosition(geoSuccess);
+};
+
  
  //firebase script link
 
