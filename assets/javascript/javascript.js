@@ -102,3 +102,19 @@ $('#petLog').hide();
     $("#petChoose").show();
   });
 
+ 
+ //firebase script link
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB2-iC_UGBuJwHLq98-xnOS6Q6izNH5vts",
+    authDomain: "netpet-a7d7a.firebaseapp.com",
+    databaseURL: "https://netpet-a7d7a.firebaseio.com",
+    projectId: "netpet-a7d7a",
+    storageBucket: "",
+    messagingSenderId: "407927560249",
+    appId: "1:407927560249:web:a2c1240e29efb5ec9c95e8"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
