@@ -121,4 +121,16 @@ $('#petStore').hide();
   firebase.initializeApp(firebaseConfig);
   var database = firebase.database();
 
+//time stamps for the activity log 
 
+$('#feed-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+
+// function show(id){
+// if(id == 1) {
+//   document.getElementById('feed-button').value=currentTime;
+// }
+// }
