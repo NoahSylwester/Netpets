@@ -153,10 +153,37 @@ $('#feed-button').on('click' , function(event){
   var currentTime = new Date();
   database.ref().update({currentTime:currentTime})
 });
+$('#play-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#potty-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#love-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
+$('#sleep-button').on('click' , function(event){
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({currentTime:currentTime})
+});
 
-// function show(id){
-// if(id == 1) {
-//   document.getElementById('feed-button').value=currentTime;
-// }
-// }
+//current time stamps append to activity log in the table
+$("#feed-button").on("click" , function(table){
+var timeTable = event.timeStamp;
+var type = "";
+document.getElementById('time').innerHTML = timeTable;
+
+if( type = 'Feed'){
+ document.getElementById('type').innerHTML = type;
+}
+// $("#petCareTable").append("<tr>");
+// $("#petCareTable").append("<td>");
+});
 
