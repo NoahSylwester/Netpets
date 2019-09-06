@@ -47,6 +47,7 @@ $('#feed-button').on('click', function(event) {
 $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
+$('#petStore').hide();
 
 
 // //Storing into a variable
@@ -98,8 +99,9 @@ $('#petLog').hide();
     $("#petDisplay").show();
   })
 
-  $("#changePet").click(function (){
-    $("#petChoose").show();
+  $("#store").click(function (){
+    $("#petStore").show();
+    $('#petDisplay').hide();
   });
 
  
