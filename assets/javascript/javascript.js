@@ -148,3 +148,16 @@ $('#sleep-button').on('click' , function(event){
   var currentTime = new Date();
   database.ref().update({currentTime:currentTime})
 });
+
+//current time stamps append to activity log in the table
+$("#feed-button").on("click" , function(table){
+var timeTable = event.timeStamp;
+document.getElementById('time').innerHTML = timeTable;
+
+if( feed = 'feed-button'){
+  return feed
+}
+// $("#petCareTable").append("<tr>");
+// $("#petCareTable").append("<td>");
+});
+
