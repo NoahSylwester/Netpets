@@ -8,17 +8,18 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Chewy&display=swap" rel="stylesheet">
   <title>NetPets</title>
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 ​
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+  <nav class="navbar navbar-expand-lg navbar-light mb-5">
     <div class="container">
       ​
       <a class="navbar-brand" href="#">
-        <h2 style="color: #0d736e">NetPets</h2>
+        <h2 class="logo">NetPets</h2>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -41,7 +42,7 @@
   </nav>
   ​
   <displaypage id="petChoose" class="page">
-    <div class="container" style="border: 1px solid #dedede; text-align: center">
+    <div class="container" style="text-align: center; background-color:rgba(230, 229, 227,0.3);">
       ​
       <div class="row mb-4">
         <div class="col-xl-12 mt-3">
@@ -50,55 +51,51 @@
       </div>
       ​
       <div class="row mx-auto">
-        <div class="card mx-auto mb-5" style="width: 18rem;">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
           <div class="card-body">
-            <!-- <h5 contenteditable="true" class="card-title">Name Me!</h5> -->
-            <img src="./assets/gifs/DinoSprites_doux.gif" class="card-img-top" alt="Dino Doux">
+            <img src="./assets/gifs/DinoSprites_doux.gif" style="width: 12rem;" class="card-img-top" alt="Dino Doux">
             <p class="card-text">
               <ul>
                 <li></li>
               </ul>
             </p>
-            <button id="pet1" type="button" class="btn btn-primary">Pick Me!</button>
+            <button id="pet1" type="button" class="btn btn-warning">Pick Me!</button>
           </div>
         </div>
-        <div class="card mx-auto mb-5" style="width: 18rem;">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
           <div class="card-body">
-            <!-- <h5 contenteditable="true" class="card-title">Name Me!</h5> -->
-            <img src="./assets/gifs/DinoSprites_mort.gif" class="card-img-top" alt="Dino Mort">
+            <img src="./assets/gifs/DinoSprites_mort.gif" style="width: 12rem;" class="card-img-top" alt="Dino Mort">
             <p class="card-text">
               <ul>
                 <li></li>
               </ul>
             </p>
-            <button id="pet2" type="button" class="btn btn-primary">Pick Me!</button>
+            <button id="pet2" type="button" class="btn btn-warning">Pick Me!</button>
           </div>
         </div>
       </div>
       ​
       <div class="row mx-auto">
-        <div class="card mx-auto mb-5" style="width: 18rem;">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
           <div class="card-body">
-            <!-- <h5 contenteditable="true" class="card-title">Name Me!</h5> -->
-            <img src="./assets/gifs/DinoSprites_tard.gif" class="card-img-top" alt="Dino Tard">
+            <img src="./assets/gifs/DinoSprites_tard.gif" style="width: 12rem;" class="card-img-top" alt="Dino Tard">
             <p class="card-text">
               <ul>
                 <li></li>
               </ul>
             </p>
-            <button id="pet3" type="button" class="btn btn-primary">Pick Me!</button>
+            <button id="pet3" type="button" class="btn btn-warning">Pick Me!</button>
           </div>
         </div>
-        <div class="card mx-auto mb-5" style="width: 18rem;">
+        <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
           <div class="card-body">
-            <!-- <h5 contenteditable="true" class="card-title">Name Me!</h5> -->
-            <img src="./assets/gifs/DinoSprites_vita.gif" class="card-img-top" alt="Dino Vita">
+            <img src="./assets/gifs/DinoSprites_vita.gif" style="width: 12rem;" class="card-img-top" alt="Dino Vita">
             <p class="card-text">
               <ul>
                 <li></li>
               </ul>
             </p>
-            <button id="pet4" type="button" class="btn btn-primary">Pick Me!</button>
+            <button id="pet4" type="button" class="btn btn-warning">Pick Me!</button>
           </div>
         </div>
       </div>
@@ -107,26 +104,28 @@
   ​
 
   <displaypage id="petName" class="page">
-    <div id="namePet" class="container" style="text-align: center">
+
+    <div class="container" style="text-align: center;">
       <div class="row">
-        <div class="col-xl-4">
+        <div class="col-xl-4 mx-auto mb-3" style="background-color:rgba(230, 229, 227,0.3);">
+      ​
           <div class="row mb-4">
-            <div class="col-xl-4 mt-3">
+            <div class="col-xl-12 mt-3">
               <h2>Name Your Pet!</h2>
             </div>
           </div>
-          ​
-          <div class="row mx-auto">
-            <div class="card mx-auto mb-5" style="width: 18rem;">
+
+          <div class="row">
+            <div class="card mx-auto mb-5" style="width: 18rem; background-color:rgba(255, 255, 255, 0.7);">
               <div class="card-body">
-                <h5 contenteditable="true" class="card-title">Name Me!</h5>
-                <img class="pet-sprite" src="..." class="card-img-top" alt="..."><br />
-                <input type="text" id="pet-name-input" placeholder="Enter name">
-                <button id="save-name" type="button" class="btn btn-primary">Save Name</button>
+                <img class="pet-sprite" src="..." style="width: 12rem;" class="card-img-top" alt="..."><br /><br />
+                <input type="text" id="pet-name-input" placeholder="Enter name"><br /><br />
+                <button id="save-name" type="button" class="btn btn-warning">Save Name</button>
               </div>
             </div>
-            ​
+
           </div>
+
         </div>
       </div>
     </div>
@@ -136,13 +135,10 @@
   <displaypage id="petDisplay" class="page">
     <div class="container">
       <div class="row">
-        <div class="pet-display text-center">
-          <img class="pet-sprite" src="https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg(19 kB)
-     https://i.ytimg.com/vi/mRf3-JkwqfU/hqdefault.jpg
-     " alt="puppy" class="rounded">
+        <div class="pet-display text-center absolute-bottom">
+          <img class="pet-sprite" src="..." style="width: 12rem;" class="card-img-top" alt="...">
         </div>
       </div>
-    </div>
     </div>
     <div class="fixed-bottom">
       <div class="card text-center">
@@ -169,14 +165,6 @@
         <tbody>
           <tr>
             <th scope="row">Type</th>
-            <td>Time</td>
-          </tr>
-          <tr>
-            <th scope="row">Type</th>
-            <td colspan="">Time</td>
-          </tr>
-          <tr>
-            <th scope="row">Type</th>
             <td colspan="">Time</td>
           </tr>
         </tbody>
@@ -184,6 +172,7 @@
     </div>
 
   </displaypage>
+
   ​
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -195,17 +184,8 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="./assets/javascript/javascript.js"></script>
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="/__/firebase/6.5.0/firebase-app.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="/__/firebase/6.5.0/firebase-auth.js"></script>
-  <script src="/__/firebase/6.5.0/firebase-firestore.js"></script>
   ​
 </body>
+
 
 </html>
