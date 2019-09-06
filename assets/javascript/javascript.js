@@ -152,10 +152,11 @@ $('#sleep-button').on('click' , function(event){
 //current time stamps append to activity log in the table
 $("#feed-button").on("click" , function(table){
 var timeTable = event.timeStamp;
+var type = "";
 document.getElementById('time').innerHTML = timeTable;
 
-if( feed = 'feed-button'){
-  return feed
+if( type = 'Feed'){
+ document.getElementById('type').innerHTML = type;
 }
 // $("#petCareTable").append("<tr>");
 // $("#petCareTable").append("<td>");
