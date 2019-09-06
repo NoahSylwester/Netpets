@@ -46,6 +46,16 @@ $('#feed-button').on('click', function(event) {
 
 $('#petName').hide();
 $('#petDisplay').hide();
+$('#petLog').hide();
+
+
+// //Storing into a variable
+// //appending rows whenever a function is pushed, this will log the time stamp
+// var timeStamp = childSnapshot.val().time
+// var petCare = childSnapshot.val().
+// var newRow = $('<tr>').append(
+//  $('<td>'.text(timeStamp)
+// )
 
 // pet selection
   $("#pet1").click(function (){
@@ -91,3 +101,4 @@ $('#petDisplay').hide();
   $("#changePet").click(function (){
     $("#petChoose").show();
   });
+
