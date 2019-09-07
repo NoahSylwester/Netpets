@@ -37,12 +37,11 @@ var Brian = new NetPet(Brian, 3);
 // create food
 var cookie = new FoodItem(10);
 
-
 // feed pet with feed button
-// $('#feed-button').on('click', function (event) {
-//   event.preventDefault();
-//   petArr[currentPet].feed(cookie.foodValue);
-// });
+$('#feed-button').on('click', function (event) {
+  event.preventDefault();
+  petArr[currentPet].feed(cookie.foodValue);
+});
 
 $('#petName').hide();
 $('#petDisplay').hide();
@@ -233,36 +232,21 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-//time stamps for the activity log 
-
-function createUser(name) {
-  var id = generateRandomId();
-  database.ref(id).set(name)
-    .then(function (snapshot) {
-      localStorage.setItem('NetPet', id)
-      // console.log(localStorage)
-      console.log("create user returns: ", snapshot)
-    }).catch(function (error) {
-      console.log("error in create user: ", error)
-    })
-}
-
-function generateRandomId() {
-  var id = "";
-  for (var i = 0; i < 10; i++) {
-    id += Math.floor(Math.random() * 10)
-  }
-  return id;
-}
-
 // activity log page 
-
+$('#feed-button').on('click', function (event) {
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({ currentTime: currentTime })
+});
+$('#love-button').on('click', function (event) {
+  event.preventDefault();
+  var currentTime = new Date();
+  database.ref().update({ currentTime: currentTime })
+});
 
 //current time stamps append to activity log in the table
 
 $("#feed-button").on("click", function (table) {
-  event.preventDefault();
-  petArr[currentPet].feed(cookie.foodValue);
   var today = Date();
   var getTime = today.toString()
   var type = 'Feed';
