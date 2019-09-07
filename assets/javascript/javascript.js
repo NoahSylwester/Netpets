@@ -107,6 +107,8 @@ $('#save-name').on('click', function () {
 })
 
 $("#store").click(function () {
+  $("#petChoose").hide();
+  $("#petName").hide();
   $("#petStore").show();
   $('#petDisplay').hide();
   $('#miniGames').hide();
@@ -118,6 +120,8 @@ $("#store").click(function () {
 });
 
 $("#log").click(function () {
+  $("#petChoose").hide();
+  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').hide();
   $('#miniGames').hide();
@@ -129,6 +133,8 @@ $("#log").click(function () {
 });
 
 $("#collect-chippies").click(function () {
+  $("#petChoose").hide();
+  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').hide();
   $('#miniGames').show();
@@ -140,6 +146,8 @@ $("#collect-chippies").click(function () {
 });
 
 $("#pet-home-link").click(function () {
+  $("#petChoose").hide();
+  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').show();
   $('#miniGames').hide();
