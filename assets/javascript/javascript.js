@@ -39,10 +39,10 @@ var cookie = new FoodItem(10);
 
 
 // feed pet with feed button
-$('#feed-button').on('click', function (event) {
-  event.preventDefault();
-  petArr[currentPet].feed(cookie.foodValue);
-});
+// $('#feed-button').on('click', function (event) {
+//   event.preventDefault();
+//   petArr[currentPet].feed(cookie.foodValue);
+// });
 
 $('#petName').hide();
 $('#petDisplay').hide();
@@ -245,26 +245,22 @@ var database = firebase.database();
 
 //time stamps for the activity log 
 
-function createUser(name){
-var id = generateRandomId();
-database.ref(id).set(name)
-.then(function(snapshot){ 
-  localStorage.setItem('NetPet', id)
-  console.log(localStorage)
-  console.log("create user returns: ", snapshot)
-}).catch(function(error){
-  console.log("error in create user: ", error)
-})
+function createUser(name) {
+  var id = generateRandomId();
+  database.ref(id).set(name)
+    .then(function (snapshot) {
+      localStorage.setItem('NetPet', id)
+      // console.log(localStorage)
+      console.log("create user returns: ", snapshot)
+    }).catch(function (error) {
+      console.log("error in create user: ", error)
+    })
 }
-createUser("Eric");
-createUser("Maltida");
-createUser("Stephania");
 
-
-function generateRandomId (){
+function generateRandomId() {
   var id = "";
-  for ( var i = 0; i < 10; i++){
-    id += Math.floor(Math.random()* 10) 
+  for (var i = 0; i < 10; i++) {
+    id += Math.floor(Math.random() * 10)
   }
   return id;
 }
@@ -272,56 +268,60 @@ function generateRandomId (){
 // activity log page 
 
 
-
-
-
-
-
-
-
-
-
-$('#feed-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-
-$('#love-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-
 //current time stamps append to activity log in the table
 
-$("#feed-button").on("click" , function(table) {
+// $("#feed-button").on("click" , function(table) {
+// event.preventDefault();
+// petArr[currentPet].feed(cookie.foodValue);
 
-var today = Date();
-var getTime = today.toString()
-var type = 'Feed';
-// var tableBody = $('#timestamp-table');
+// var today = Date();
+// var getTime = today.toString()
+// var type = 'Feed';
+// // var tableBody = $('#timestamp-table');
 
-var newRow = $('<tr>').attr("class", "row-type").append(
-   $('<td>').text(type),
-  $('<td>').text(getTime)
-);
+// var newRow = $('<tr>').attr("class", "row-type").append(
+//    $('<td>').text(type),
+//   $('<td>').text(getTime)
+// );
 
-$('#content-body').prepend(newRow);
-
-$("#love-button").on("click" , function(table) {
-
-var today = Date();
-var getTime = today.toString()
-var type = 'Love';
-// var tableBody = $('#timestamp-table');
-
-var newRow = $('<tr>').attr("class", "row-type").append(
-   $('<td>').text(type),
-  $('<td>').text(getTime)
-);
-
-$('#content-body').prepend(newRow);
-
+// $('#content-body').prepend(newRow);
+// });
+$("#feed-button").on("click", function (table) {
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Feed';
+  // var tableBody = $('#timestamp-table');
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+  $('#content-body').prepend(newRow);
 });
 
+$("#love-button").on("click", function (table) {
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Feed';
+  // var tableBody = $('#timestamp-table');
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+  $('#content-body').prepend(newRow);
+});
+
+$("#love-button").on("click", function (table) {
+
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Love';
+  // var tableBody = $('#timestamp-table');
+
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+
+  $('#content-body').prepend(newRow);
+
+});
