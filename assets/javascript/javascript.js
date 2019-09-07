@@ -54,16 +54,6 @@ $('#chase').hide();
 $('#race').hide();
 $('#follow').hide();
 
-
-
-// //Storing into a variable
-// //appending rows whenever a function is pushed, this will log the time stamp
-// var timeStamp = childSnapshot.val().time
-// var petCare = childSnapshot.val().
-// var newRow = $('<tr>').append(
-//  $('<td>'.text(timeStamp)
-// )
-
 // pet selection
 $("#pet1").click(function () {
   $("#petChoose").hide();
@@ -270,23 +260,9 @@ function generateRandomId() {
 
 //current time stamps append to activity log in the table
 
-// $("#feed-button").on("click" , function(table) {
-// event.preventDefault();
-// petArr[currentPet].feed(cookie.foodValue);
-
-// var today = Date();
-// var getTime = today.toString()
-// var type = 'Feed';
-// // var tableBody = $('#timestamp-table');
-
-// var newRow = $('<tr>').attr("class", "row-type").append(
-//    $('<td>').text(type),
-//   $('<td>').text(getTime)
-// );
-
-// $('#content-body').prepend(newRow);
-// });
 $("#feed-button").on("click", function (table) {
+  event.preventDefault();
+  petArr[currentPet].feed(cookie.foodValue);
   var today = Date();
   var getTime = today.toString()
   var type = 'Feed';
