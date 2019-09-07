@@ -1,17 +1,16 @@
 body {
-  /* position: relative; */
-  /* min-height: 100%; */
   background-image: url("../images/riley-pope-_52HIBqdGYc-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
 }
 
 #petControls {
-  background-color:rgba(230, 229, 227,0.3);
+  background-color:rgba(230, 229, 227,0.4);
 }
 
 .navbar {
-  background-color:rgba(230, 229, 227,0.3);
+  background-color:rgba(230, 229, 227,0.4);
 }
 
 .logo {
