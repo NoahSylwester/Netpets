@@ -6,11 +6,11 @@ body {
 }
 
 #petControls {
-  background-color:rgba(230, 229, 227,0.4);
+  background-color:rgba(230, 229, 227,0.3);
 }
 
 .navbar {
-  background-color:rgba(230, 229, 227,0.4);
+  background-color:rgba(230, 229, 227,0.3);
 }
 
 .logo {
@@ -26,8 +26,8 @@ body {
 h2,
 h4,
 a,
-th,
-td,
+.tableHeader,
+.row-type,
 button {
   font-family: 'Chewy', cursive;
 }
