@@ -1,7 +1,19 @@
 // player currency
 var chippies = 200;
 
-var petId = "";
+// game score
+var score = 0;
+
+var updateChippies = function() {
+  score = localStorage.getItem('score');
+  if (score > 0) {
+    chippies += score/2;
+  }
+  localStorage.setItem('score', 0)
+;  score = 0;
+};
+
+var petId = "doux";
 var petName = "";
 var petArr = [];
 var currentPet = 0;
@@ -68,28 +80,28 @@ $('#follow').hide();
 $("#pet1").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
-  petId = "Doux";
+  petId = "doux";
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_doux.gif" });
   petArr.push(new NetPet(petName, 100));
 });
 $("#pet2").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
-  petId = "Mort";
+  petId = "mort";
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_mort.gif" });
   petArr.push(new NetPet(petName, 100));
 });
 $("#pet3").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
-  petId = "Tard";
+  petId = "sally";
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_tard.gif" });
   petArr.push(new NetPet(petName, 100));
 });
 $("#pet4").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
-  petId = "Vita";
+  petId = "vita";
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_vita.gif" });
   petArr.push(new NetPet(petName, 100));
 });
@@ -117,6 +129,7 @@ $("#store").click(function () {
   $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  updateChippies();
 });
 
 $("#log").click(function () {
@@ -130,6 +143,7 @@ $("#log").click(function () {
   $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  updateChippies();
 });
 
 $("#collect-chippies").click(function () {
@@ -143,6 +157,7 @@ $("#collect-chippies").click(function () {
   $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  updateChippies();
 });
 
 $("#pet-home-link").click(function () {
@@ -156,6 +171,7 @@ $("#pet-home-link").click(function () {
   $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  updateChippies();
 });
 
 $("#game1").click(function () {
@@ -167,6 +183,8 @@ $("#game1").click(function () {
   $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  var game = $(`<iframe src="./minigames/index.html?petId=${petId}"></iframe>`);
+  $('.game-window-fruit').html(game);
 });
 
 $("#game2").click(function () {
@@ -174,10 +192,12 @@ $("#game2").click(function () {
   $('#petDisplay').hide();
   $('#miniGames').hide();
   $('#petLog').hide();
-  $('#fruit').hide();
-  $('#chase').show();
+  $('#fruit').show();
+  $('#chase').hide();
   $('#race').hide();
   $('#follow').hide();
+  var game = $(`<iframe src="./minigames/chasegame/index.html?petId=${petId}"></iframe>`);
+  $('.game-window-fruit').html(game);
 });
 
 $("#game3").click(function () {
@@ -185,10 +205,12 @@ $("#game3").click(function () {
   $('#petDisplay').hide();
   $('#miniGames').hide();
   $('#petLog').hide();
-  $('#fruit').hide();
+  $('#fruit').show();
   $('#chase').hide();
-  $('#race').show();
+  $('#race').hide();
   $('#follow').hide();
+  var game = $(`<iframe src="./minigames/racegame/index.html?petId=${petId}"></iframe>`);
+  $('.game-window-fruit').html(game);
 });
 
 $("#game4").click(function () {
@@ -196,10 +218,12 @@ $("#game4").click(function () {
   $('#petDisplay').hide();
   $('#miniGames').hide();
   $('#petLog').hide();
-  $('#fruit').hide();
+  $('#fruit').show();
   $('#chase').hide();
   $('#race').hide();
-  $('#follow').show();
+  $('#follow').hide();
+  var game = $(`<iframe src="./minigames/followgame/index.html?petId=${petId}"></iframe>`);
+  $('.game-window-fruit').html(game);
 });
 // weather API calls
 var coordinates = [];
@@ -287,4 +311,3 @@ if( type = 'Feed'){
 // $("#petCareTable").append("<tr>");
 // $("#petCareTable").append("<td>");
 });
-
