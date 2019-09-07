@@ -107,8 +107,6 @@ $('#save-name').on('click', function () {
 })
 
 $("#store").click(function () {
-  $("#petChoose").hide();
-  $("#petName").hide();
   $("#petStore").show();
   $('#petDisplay').hide();
   $('#miniGames').hide();
@@ -120,8 +118,6 @@ $("#store").click(function () {
 });
 
 $("#log").click(function () {
-  $("#petChoose").hide();
-  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').hide();
   $('#miniGames').hide();
@@ -133,8 +129,6 @@ $("#log").click(function () {
 });
 
 $("#collect-chippies").click(function () {
-  $("#petChoose").hide();
-  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').hide();
   $('#miniGames').show();
@@ -146,8 +140,6 @@ $("#collect-chippies").click(function () {
 });
 
 $("#pet-home-link").click(function () {
-  $("#petChoose").hide();
-  $("#petName").hide();
   $("#petStore").hide();
   $('#petDisplay').show();
   $('#miniGames').hide();
@@ -245,27 +237,49 @@ var database = firebase.database();
 
 //time stamps for the activity log 
 
+function createUser(name){
+var id = generateRandomId();
+database.ref(id).set(name)
+.then(function(snapshot){ 
+  localStorage.setItem('NetPet', id)
+  console.log(localStorage)
+  console.log("create user returns: ", snapshot)
+}).catch(function(error){
+  console.log("error in create user: ", error)
+})
+}
+createUser("Eric");
+createUser("Maltida");
+createUser("Stephania");
+
+
+function generateRandomId (){
+  var id = "";
+  for ( var i = 0; i < 10; i++){
+    id += Math.floor(Math.random()* 10) 
+  }
+  return id;
+}
+
+// activity log page 
+
+
+
+
+
+
+
+
+
+
+
 $('#feed-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   database.ref().update({ currentTime: currentTime })
 });
-$('#play-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-$('#potty-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
+
 $('#love-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-$('#sleep-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   database.ref().update({ currentTime: currentTime })
@@ -273,18 +287,33 @@ $('#sleep-button').on('click', function (event) {
 
 //current time stamps append to activity log in the table
 
-$("#feed-button").on("click" , function(table){
+$("#feed-button").on("click" , function(table) {
 
 var today = Date();
 var getTime = today.toString()
-var type = "";
+var type = 'Feed';
+// var tableBody = $('#timestamp-table');
 
-document.getElementById('time').innerHTML = getTime;
+var newRow = $('<tr>').attr("class", "row-type").append(
+   $('<td>').text(type),
+  $('<td>').text(getTime)
+);
 
-if( type = 'Feed'){
- document.getElementById('type').innerHTML = type;
-}
-// $("#petCareTable").append("<tr>");
-// $("#petCareTable").append("<td>");
+$('#content-body').prepend(newRow);
+
+$("#love-button").on("click" , function(table) {
+
+var today = Date();
+var getTime = today.toString()
+var type = 'Feed';
+// var tableBody = $('#timestamp-table');
+
+var newRow = $('<tr>').attr("class", "row-type").append(
+   $('<td>').text(type),
+  $('<td>').text(getTime)
+);
+
+$('#content-body').prepend(newRow);
+
 });
 
