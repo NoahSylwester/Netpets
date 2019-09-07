@@ -48,6 +48,8 @@ $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
 $('#petStore').hide();
+$('#miniGames').hide();
+
 
 
 // //Storing into a variable
@@ -103,6 +105,29 @@ $('#petStore').hide();
   $("#store").click(function (){
     $("#petStore").show();
     $('#petDisplay').hide();
+    $('#miniGames').hide();
+    $('#petLog').hide();
+  });
+
+  $("#log").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').hide();
+    $('#miniGames').hide();
+    $('#petLog').show();
+  });
+
+  $("#collect-chippies").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').hide();
+    $('#miniGames').show();
+    $('#petLog').hide();
+  });
+
+  $("#pet-home-link").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').show();
+    $('#miniGames').hide();
+    $('#petLog').hide();
   });
 
 // weather API calls
@@ -178,13 +203,10 @@ $('#sleep-button').on('click' , function(event){
 //current time stamps append to activity log in the table
 $("#feed-button").on("click" , function(table){
 
-var timeTable = event.timeStamp;
-var type = "";
-document.getElementById('time').innerHTML = timeTable
-  
 var today = Date();
 var getTime = today.toString()
 var type = "";
+
 document.getElementById('time').innerHTML = getTime;
 
 if( type = 'Feed'){
