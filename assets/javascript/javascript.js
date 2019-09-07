@@ -305,7 +305,7 @@ $("#love-button").on("click" , function(table) {
 
 var today = Date();
 var getTime = today.toString()
-var type = 'Feed';
+var type = 'Love';
 // var tableBody = $('#timestamp-table');
 
 var newRow = $('<tr>').attr("class", "row-type").append(
