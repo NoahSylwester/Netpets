@@ -1,15 +1,10 @@
 body {
   /* position: relative; */
-  height: 100%;
+  /* height: 100%; */
   background-image: url("../images/riley-pope-_52HIBqdGYc-unsplash.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-/* #background {
-  background-image: url("../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg");
   background-size: cover;
-} */
+}
 
 #petControls {
   background-color:rgba(230, 229, 227,0.3);
