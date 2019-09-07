@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fruit catcher</title>
+  <style>
+    canvas {
+      border: black 1px solid;
+      float: left;
+      background-color: rgb(188, 255, 229);
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="game-title">Fruit catcher!</h1>
+  <canvas></canvas>
+
+  <h1 id="scoreboard-fruit">Score: 0</h1>
+  <h1 id="timer-fruit">Time remaining: 30</h1>
+  <p>Your pet wants to help pick fruit!
+    Teach them how with the arrow keys!</p>
+
+  <div style="display: none;">
+    <img class="fruit" id="avocado" src="./assets/avocado.png">
+    <img class="fruit" id="berry" src="./assets/berry.png">
+    <img class="fruit" id="watermelon" src="./assets/watermelon.png">
+    <img class="fruit" id="eggplant" src="./assets/eggplant.png">
+    <img class="player-sprite-fruit" src="./assets/DinoSprites - doux copy.png">
+  </div>
+  <script src="./game.js"></script>
+</body>
+
+</html>

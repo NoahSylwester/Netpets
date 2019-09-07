@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaser</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+      float: left;
+      background: rgb(174, 223, 255);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="game-title">Chase game!</h1>
+  <canvas></canvas>
+  <h1 id="scoreboard-chaser">Score: 0</h1>
+  <h1 id="timer-chaser">Time remaining: 30</h1>
+  <p>Your pet wants to be chased around! Click on your pet to catch them!</p>
+  <div style="display: none;">
+    <img class="pet-sprite-chaser" src="../assets/DinoSprites - doux copy.png">
+  </div>
+  <script src="./game.js"></script>
+</body>
+</html>
