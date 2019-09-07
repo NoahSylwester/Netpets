@@ -1,9 +1,8 @@
 body {
-  /* position: relative; */
-  /* height: 100%; */
   background-image: url("../images/riley-pope-_52HIBqdGYc-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100%;
 }
 
 iframe {
@@ -36,8 +35,8 @@ iframe {
 h2,
 h4,
 a,
-th,
-td,
+.tableHeader,
+.row-type,
 button {
   font-family: 'Chewy', cursive;
 }
@@ -54,7 +53,7 @@ h4 {
   text-shadow: -1px -1px 0 #545454, 1px -1px 0 #545454, -1px 1px 0 #545454, 1px 1px 0 #545454;
 }
 
-.tableContent {
+.row-type {
   font-size: 20px;
   color: #ffc107;
   text-shadow: -1px -1px 0 #545454, 1px -1px 0 #545454, -1px 1px 0 #545454, 1px 1px 0 #545454;

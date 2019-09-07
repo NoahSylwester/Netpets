@@ -49,7 +49,6 @@ var Brian = new NetPet(Brian, 3);
 // create food
 var cookie = new FoodItem(10);
 
-
 // feed pet with feed button
 $('#feed-button').on('click', function (event) {
   event.preventDefault();
@@ -65,16 +64,6 @@ $('#fruit').hide();
 $('#chase').hide();
 $('#race').hide();
 $('#follow').hide();
-
-
-
-// //Storing into a variable
-// //appending rows whenever a function is pushed, this will log the time stamp
-// var timeStamp = childSnapshot.val().time
-// var petCare = childSnapshot.val().
-// var newRow = $('<tr>').append(
-//  $('<td>'.text(timeStamp)
-// )
 
 // pet selection
 $("#pet1").click(function () {
@@ -267,19 +256,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-//time stamps for the activity log 
-
+// activity log page 
 $('#feed-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-$('#play-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
-$('#potty-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   database.ref().update({ currentTime: currentTime })
@@ -289,25 +267,47 @@ $('#love-button').on('click', function (event) {
   var currentTime = new Date();
   database.ref().update({ currentTime: currentTime })
 });
-$('#sleep-button').on('click', function (event) {
-  event.preventDefault();
-  var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
-});
 
 //current time stamps append to activity log in the table
 
-$("#feed-button").on("click" , function(table){
-
-var today = Date();
-var getTime = today.toString()
-var type = "";
-
-document.getElementById('time').innerHTML = getTime;
-
-if( type = 'Feed'){
- document.getElementById('type').innerHTML = type;
-}
-// $("#petCareTable").append("<tr>");
-// $("#petCareTable").append("<td>");
+$("#feed-button").on("click", function (table) {
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Feed';
+  // var tableBody = $('#timestamp-table');
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+  $('#content-body').prepend(newRow);
 });
+
+$("#love-button").on("click", function (table) {
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Feed';
+  // var tableBody = $('#timestamp-table');
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+  $('#content-body').prepend(newRow);
+});
+
+$("#love-button").on("click", function (table) {
+
+
+  var today = Date();
+  var getTime = today.toString()
+  var type = 'Love';
+  // var tableBody = $('#timestamp-table');
+
+  var newRow = $('<tr>').attr("class", "row-type").append(
+    $('<td>').text(type),
+    $('<td>').text(getTime)
+  );
+
+  $('#content-body').prepend(newRow);
+
+});
+
