@@ -48,6 +48,8 @@ $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
 $('#petStore').hide();
+$('#miniGames').hide();
+
 
 
 // //Storing into a variable
@@ -103,6 +105,29 @@ $('#petStore').hide();
   $("#store").click(function (){
     $("#petStore").show();
     $('#petDisplay').hide();
+    $('#miniGames').hide();
+    $('#petLog').hide();
+  });
+
+  $("#log").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').hide();
+    $('#miniGames').hide();
+    $('#petLog').show();
+  });
+
+  $("#collect-chippies").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').hide();
+    $('#miniGames').show();
+    $('#petLog').hide();
+  });
+
+  $("#pet-home-link").click(function (){
+    $("#petStore").hide();
+    $('#petDisplay').show();
+    $('#miniGames').hide();
+    $('#petLog').hide();
   });
 
 // weather API calls
