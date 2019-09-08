@@ -13,7 +13,6 @@ iframe {
   padding: 0;
 }
 
-
 #petControls {
   background-color:rgba(230, 229, 227,0.3);
 }
@@ -57,4 +56,14 @@ h4 {
   font-size: 20px;
   color: #ffc107;
   text-shadow: -1px -1px 0 #545454, 1px -1px 0 #545454, -1px 1px 0 #545454, 1px 1px 0 #545454;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  right: -3px;
+  padding: 5px 8px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
 }
