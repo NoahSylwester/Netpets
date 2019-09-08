@@ -55,7 +55,7 @@ $('#feed-button').on('click', function (event) {
   petArr[currentPet].feed(cookie.foodValue);
 });
 
-//start page load with all content except petChoose hidden
+//start page load with all content hidden except petChoose page
 $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
