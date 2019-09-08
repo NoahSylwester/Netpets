@@ -9,8 +9,8 @@ var updateChippies = function() {
   if (score > 0) {
     chippies += score/2;
   }
-  localStorage.setItem('score', 0)
-;  score = 0;
+  localStorage.setItem('score', 0); 
+  score = 0;
 };
 
 var petId = "doux";
@@ -55,6 +55,7 @@ $('#feed-button').on('click', function (event) {
   petArr[currentPet].feed(cookie.foodValue);
 });
 
+//start page load with all content except petChoose hidden
 $('#petName').hide();
 $('#petDisplay').hide();
 $('#petLog').hide();
@@ -73,6 +74,7 @@ $("#pet1").click(function () {
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_doux.gif" });
   petArr.push(new NetPet(petName, 100));
 });
+
 $("#pet2").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
@@ -80,6 +82,7 @@ $("#pet2").click(function () {
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_mort.gif" });
   petArr.push(new NetPet(petName, 100));
 });
+
 $("#pet3").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
@@ -87,6 +90,7 @@ $("#pet3").click(function () {
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_tard.gif" });
   petArr.push(new NetPet(petName, 100));
 });
+
 $("#pet4").click(function () {
   $("#petChoose").hide();
   $('#petName').show();
@@ -94,8 +98,6 @@ $("#pet4").click(function () {
   $(".pet-sprite").attr({ "src": "./assets/gifs/DinoSprites_vita.gif" });
   petArr.push(new NetPet(petName, 100));
 });
-
-
 
 $('#save-name').on('click', function () {
   petName = $('#pet-name-input').val().trim();
@@ -105,7 +107,7 @@ $('#save-name').on('click', function () {
   $('#pet-home-link').text(petName);
   $("#petName").hide();
   $("#petDisplay").show();
-})
+});
 
 $("#store").click(function () {
   $("#petChoose").hide();
@@ -214,6 +216,15 @@ $("#game4").click(function () {
   var game = $(`<iframe src="./minigames/followgame/index.html?petId=${petId}"></iframe>`);
   $('.game-window-fruit').html(game);
 });
+
+//array of images that will change body background image depending on local weather
+var weatherPicArray = [
+  "../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
+  "../images/linh-nguyen-xjXz8GKXcTI-unsplash.jpg",
+  "../images/nils-rasmusson-NXNU0vvMwXo-unsplash.jpg",
+  "../images/riley-pope-_52HIBqdGYc-unsplash.jpg"
+];
+
 // weather API calls
 var coordinates = [];
 var weatherCondition = "Clear";
@@ -239,9 +250,7 @@ window.onload = function () {
   navigator.geolocation.getCurrentPosition(geoSuccess);
 };
 
-
 //firebase script link
-
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyB2-iC_UGBuJwHLq98-xnOS6Q6izNH5vts",
@@ -252,6 +261,7 @@ var firebaseConfig = {
   messagingSenderId: "407927560249",
   appId: "1:407927560249:web:a2c1240e29efb5ec9c95e8"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
@@ -269,7 +279,6 @@ $('#love-button').on('click', function (event) {
 });
 
 //current time stamps append to activity log in the table
-
 $("#feed-button").on("click", function (table) {
   var today = Date();
   var getTime = today.toString()
@@ -282,21 +291,14 @@ $("#feed-button").on("click", function (table) {
   $('#content-body').prepend(newRow);
 });
 
-
 $("#love-button").on("click", function (table) {
-
-
   var today = Date();
   var getTime = today.toString()
   var type = 'Love';
   // var tableBody = $('#timestamp-table');
-
   var newRow = $('<tr>').attr("class", "row-type").append(
     $('<td>').text(type),
     $('<td>').text(getTime)
   );
-
   $('#content-body').prepend(newRow);
-
 });
-
