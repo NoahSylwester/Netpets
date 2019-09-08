@@ -1,5 +1,5 @@
 // player currency
-var chippies = 200;
+var chippies = 100;
 
 // game score
 var score = 0;
