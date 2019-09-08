@@ -32,7 +32,7 @@ var NetPet = function (name, hungerRate) {
     this.hungerValue += foodValue;
     if (this.hungerValue >= 200) { // limit amount of feeding
       this.hungerValue = 200;
-      $('#pet-words').text("I'm full!"); // .pet-display working class
+      $('#pet-words').text("I'm full!");
     };
     $('.status-bar').text('Hunger: ' + this.hungerValue); // .status-bar working class
   };
