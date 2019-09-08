@@ -219,10 +219,10 @@ $("#game4").click(function () {
 
 //array of images that will change body background image depending on local weather
 var weatherPicArray = [
-  "assets\images\jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
-  "assets\images\linh-nguyen-xjXz8GKXcTI-unsplash.jpg",
-  "assets\images\nils-rasmusson-NXNU0vvMwXo-unsplash.jpg",
-  "assets\images\riley-pope-_52HIBqdGYc-unsplash.jpg"
+  "../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
+  "../images/linh-nguyen-xjXz8GKXcTI-unsplash.jpg",
+  "../images/nils-rasmusson-NXNU0vvMwXo-unsplash.jpg",
+  "../images/riley-pope-_52HIBqdGYc-unsplash.jpg"
 ];
 
 // weather API calls
