@@ -282,17 +282,6 @@ $("#feed-button").on("click", function (table) {
   $('#content-body').prepend(newRow);
 });
 
-$("#love-button").on("click", function (table) {
-  var today = Date();
-  var getTime = today.toString()
-  var type = 'Feed';
-  // var tableBody = $('#timestamp-table');
-  var newRow = $('<tr>').attr("class", "row-type").append(
-    $('<td>').text(type),
-    $('<td>').text(getTime)
-  );
-  $('#content-body').prepend(newRow);
-});
 
 $("#love-button").on("click", function (table) {
 
