@@ -100,7 +100,7 @@ $("#pet4").click(function () {
 $('#save-name').on('click', function () {
   petName = $('#pet-name-input').val().trim();
   if (petName === "") {
-    petName = petId;
+    petName = petId.charAt(0).toUpperCase() + petId.slice(1);
   }
   $('#pet-home-link').text(petName);
   $("#petName").hide();
