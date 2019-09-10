@@ -1,6 +1,9 @@
 // player currency
 var chippies = 100;
 
+// start with some food
+var steaks = 3;
+
 // game score
 var score = 0;
 
@@ -17,7 +20,7 @@ var petId = "doux";
 var petName = "";
 var petArr = [];
 var currentPet = 0;
-var feedBtnValue = 3;
+
 
 // this constructor creates a new netpet
 var NetPet = function (name, hungerRate) {
@@ -311,13 +314,27 @@ $("#love-button").on("click", function (table) {
 });
 
 $("#feed-button").on("click", function() {
-  feedBtnValue --;
-  $("#feedBadge").html(feedBtnValue);
-  //needs to stop at 0 though.
+  if (steaks > 0) {
+    steaks --;
+  }
+  else if (steaks === 0 || steaks < 0) {
+    steaks = 0;
+  }
+  $("#feedBadge").html(steaks);
 });
 
 $("#buy1").on("click", function(){
-  chippies = chippies-50;
+  if (chippies >= 50) {
+    chippies -= 50;
+    steaks += 1;
+    $("#feedBadge").html(steaks);
+  }
+  else {
+    $('#steak-price').html('Not enough chippies!');
+    setTimeout(() => {
+      $('#steak-price').html(`<i class="fas fa-coins"></i> 50`);
+    }, 1000);
+  }
   $("#chippiesLeft").html(chippies);
 });
 
