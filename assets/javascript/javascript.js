@@ -17,6 +17,7 @@ var petId = "doux";
 var petName = "";
 var petArr = [];
 var currentPet = 0;
+var feedBtnValue = 3;
 
 // this constructor creates a new netpet
 var NetPet = function (name, hungerRate) {
@@ -271,13 +272,17 @@ $('#feed-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   var care = "feed";
+
   database.ref().update({ currentTime: currentTime, type: care, name: petName})
+
 });
 $('#love-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   var care = "love";
+
   database.ref().update({ currentTime: currentTime, type: care, name: petName})
+
 });
 
 //current time stamps append to activity log in the table
@@ -304,3 +309,15 @@ $("#love-button").on("click", function (table) {
   );
   $('#content-body').prepend(newRow);
 });
+
+$("#feed-button").on("click", function() {
+  feedBtnValue --;
+  $("#feedBadge").html(feedBtnValue);
+  //needs to stop at 0 though.
+});
+
+$("buy1").on("click", function(){
+  chippies = chippies-50;
+  $("#chippiesLeft").html(chippies);
+}); //this isn't working
+
