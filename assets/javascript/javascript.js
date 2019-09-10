@@ -14,6 +14,7 @@ var updateChippies = function() {
   }
   localStorage.setItem('score', 0); 
   score = 0;
+  $("#chippiesLeft").html(chippies)
 };
 
 var petId = "doux";
@@ -367,5 +368,5 @@ $("#buy1").on("click", function(){
     }, 1000);
   }
   $("#chippiesLeft").html(chippies);
+  //needs to stop at 0
 });
-
