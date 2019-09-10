@@ -277,7 +277,7 @@ $('#love-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   var care = "love";
-  database.ref().update({ currentTime: currentTime, type: care, name: petName}})
+  database.ref().update({ currentTime: currentTime, type: care, name: petName})
 });
 
 //current time stamps append to activity log in the table
