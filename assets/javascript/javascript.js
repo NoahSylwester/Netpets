@@ -270,12 +270,14 @@ var database = firebase.database();
 $('#feed-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
+  var care = "feed";
+  database.ref().update({ currentTime: currentTime, type: care, name: petName})
 });
 $('#love-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
-  database.ref().update({ currentTime: currentTime })
+  var care = "love";
+  database.ref().update({ currentTime: currentTime, type: care, name: petName})
 });
 
 //current time stamps append to activity log in the table
