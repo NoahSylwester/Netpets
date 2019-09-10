@@ -312,8 +312,8 @@ $("#feed-button").on("click", function() {
   //needs to stop at 0 though.
 });
 
-$("buy1").on("click", function(){
+$("#buy1").on("click", function(){
   chippies = chippies-50;
   $("#chippiesLeft").html(chippies);
-}); //this isn't working
+});
 
