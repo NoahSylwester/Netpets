@@ -219,6 +219,17 @@ $("#game4").click(function () {
   $('.game-window-fruit').html(game);
 });
 
+$("#returnHome").on("click", function() {
+  $("#petStore").hide();
+  $('#petDisplay').show();
+  $('#miniGames').hide();
+  $('#petLog').hide();
+  $('#fruit').hide();
+  $('#chase').hide();
+  $('#race').hide();
+  $('#follow').hide();
+});
+
 //array of images that will change body background image depending on local weather
 var weatherPicArray = [
   "../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
