@@ -21,8 +21,17 @@ iframe {
   background-color:rgba(230, 229, 227,0.3);
 }
 
+canvas {
+  position: relative;
+  z-index: -10000; 
+  /* this extreme z-index is necessary for some reason */
+}
+
 .navbar {
   background-color:rgba(230, 229, 227,0.3);
+  position: relative;
+  z-index: 10000;
+  /* this extreme z-index is necessary for some reason */
 }
 
 .logo {
