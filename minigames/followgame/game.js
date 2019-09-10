@@ -214,7 +214,7 @@ function animate() {
   cursor.update();
   // make heart appear, add score
   if (cursor.x > petSprite.x && cursor.x < petSprite.x  + 40 &&
-      cursor.y > petSprite.y && cursor.y < petSprite.y + 160) {
+      cursor.y > petSprite.y && cursor.y < petSprite.y + 40) {
       heart.update();
       petSprite.touching = true;
       // also take put scorestash into score
