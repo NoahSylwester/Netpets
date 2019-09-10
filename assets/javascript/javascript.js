@@ -222,6 +222,17 @@ $("#game4").click(function () {
   $('.game-window-fruit').html(game);
 });
 
+$("#returnHome").on("click", function() {
+  $("#petStore").hide();
+  $('#petDisplay').show();
+  $('#miniGames').hide();
+  $('#petLog').hide();
+  $('#fruit').hide();
+  $('#chase').hide();
+  $('#race').hide();
+  $('#follow').hide();
+});
+
 
 var determineBackgroundFromWeather = function() {
   //array of images that will change body background image depending on local weather
@@ -257,7 +268,7 @@ var determineBackgroundFromWeather = function() {
   $('body').css({
     'background-image': `url(${weatherPicArray[index]})`
   });
-}
+};
 
 
 // weather API calls
