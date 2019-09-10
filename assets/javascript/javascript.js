@@ -1,6 +1,9 @@
 // player currency
 var chippies = 100;
 
+// start with some food
+var steaks = 3;
+
 // game score
 var score = 0;
 
@@ -18,7 +21,7 @@ var petId = "doux";
 var petName = "";
 var petArr = [];
 var currentPet = 0;
-var feedBtnValue = 3;
+
 
 // this constructor creates a new netpet
 var NetPet = function (name, hungerRate) {
@@ -230,13 +233,43 @@ $("#returnHome").on("click", function() {
   $('#follow').hide();
 });
 
-//array of images that will change body background image depending on local weather
-var weatherPicArray = [
-  "../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
-  "../images/linh-nguyen-xjXz8GKXcTI-unsplash.jpg",
-  "../images/nils-rasmusson-NXNU0vvMwXo-unsplash.jpg",
-  "../images/riley-pope-_52HIBqdGYc-unsplash.jpg"
-];
+
+var determineBackgroundFromWeather = function() {
+  //array of images that will change body background image depending on local weather
+  var weatherPicArray = [
+    "./assets/images/cloudy.jpg",
+    "./assets/images/rainy.jpg",
+    "./assets/images/snowy.jpg",
+    "./assets/images/sunny.jpg"
+  ];
+  var index = 0;
+  switch(weatherCondition) {
+    case "Clear":
+      index = 3;
+      break;
+    case "Clouds":
+      index = 0;
+      break;
+    case "Snow":
+      index = 2;
+      break;
+    case "Rain":
+      index = 1;
+      break;
+    case "Drizzle":
+      index = 1;
+      break;
+    case "Thunderstorm":
+      index = 1;
+      break;
+    default:
+      index = 3;
+  }
+  $('body').css({
+    'background-image': `url(${weatherPicArray[index]})`
+  });
+};
+
 
 // weather API calls
 var coordinates = [];
@@ -258,6 +291,7 @@ window.onload = function () {
       // "Rain" or "Drizzle"
       // "Thunderstorm"
       weatherCondition = response.weather[0].main;
+      determineBackgroundFromWeather();
     });
   };
   navigator.geolocation.getCurrentPosition(geoSuccess);
@@ -284,13 +318,17 @@ $('#feed-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   var care = "feed";
-  database.ref().update({ currentTime: currentTime, type:care, name:petName })
+
+  database.ref().update({ currentTime: currentTime, type: care, name: petName})
+
 });
 $('#love-button').on('click', function (event) {
   event.preventDefault();
   var currentTime = new Date();
   var care = "love";
-  database.ref().update({ currentTime: currentTime, type:care, name:petName })
+
+  database.ref().update({ currentTime: currentTime, type: care, name: petName})
+
 });
 
 //current time stamps append to activity log in the table
@@ -319,13 +357,27 @@ $("#love-button").on("click", function (table) {
 });
 
 $("#feed-button").on("click", function() {
-  feedBtnValue --;
-  $("#feedBadge").html(feedBtnValue);
-  //needs to stop at 0 though.
+  if (steaks > 0) {
+    steaks --;
+  }
+  else if (steaks === 0 || steaks < 0) {
+    steaks = 0;
+  }
+  $("#feedBadge").html(steaks);
 });
 
 $("#buy1").on("click", function(){
-  chippies = chippies-50;
+  if (chippies >= 50) {
+    chippies -= 50;
+    steaks += 1;
+    $("#feedBadge").html(steaks);
+  }
+  else {
+    $('#steak-price').html('Not enough chippies!');
+    setTimeout(() => {
+      $('#steak-price').html(`<i class="fas fa-coins"></i> 50`);
+    }, 1000);
+  }
   $("#chippiesLeft").html(chippies);
   //needs to stop at 0
 });
