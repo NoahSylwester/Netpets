@@ -221,13 +221,43 @@ $("#game4").click(function () {
   $('.game-window-fruit').html(game);
 });
 
-//array of images that will change body background image depending on local weather
-var weatherPicArray = [
-  "../images/jean-luc-crucifix-19tQv51x4-A-unsplash.jpg",
-  "../images/linh-nguyen-xjXz8GKXcTI-unsplash.jpg",
-  "../images/nils-rasmusson-NXNU0vvMwXo-unsplash.jpg",
-  "../images/riley-pope-_52HIBqdGYc-unsplash.jpg"
-];
+
+var determineBackgroundFromWeather = function() {
+  //array of images that will change body background image depending on local weather
+  var weatherPicArray = [
+    "./assets/images/cloudy.jpg",
+    "./assets/images/rainy.jpg",
+    "./assets/images/snowy.jpg",
+    "./assets/images/sunny.jpg"
+  ];
+  var index = 0;
+  switch(weatherCondition) {
+    case "Clear":
+      index = 3;
+      break;
+    case "Clouds":
+      index = 0;
+      break;
+    case "Snow":
+      index = 2;
+      break;
+    case "Rain":
+      index = 1;
+      break;
+    case "Drizzle":
+      index = 1;
+      break;
+    case "Thunderstorm":
+      index = 1;
+      break;
+    default:
+      index = 3;
+  }
+  $('body').css({
+    'background-image': `url(${weatherPicArray[index]})`
+  });
+}
+
 
 // weather API calls
 var coordinates = [];
@@ -249,6 +279,7 @@ window.onload = function () {
       // "Rain" or "Drizzle"
       // "Thunderstorm"
       weatherCondition = response.weather[0].main;
+      determineBackgroundFromWeather();
     });
   };
   navigator.geolocation.getCurrentPosition(geoSuccess);
