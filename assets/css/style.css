@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+}
+
 body {
   background-image: url("../images/riley-pope-_52HIBqdGYc-unsplash.jpg");
   background-repeat: no-repeat;
