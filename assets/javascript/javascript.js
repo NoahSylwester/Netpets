@@ -7,6 +7,7 @@ var steaks = 3;
 // game score
 var score = 0;
 
+
 var updateChippies = function() {
   score = localStorage.getItem('score');
   if (score > 0) {
@@ -222,16 +223,20 @@ $("#game4").click(function () {
   $('.game-window-fruit').html(game);
 });
 
-$("#returnHome").on("click", function() {
-  $("#petStore").hide();
-  $('#petDisplay').show();
-  $('#miniGames').hide();
-  $('#petLog').hide();
-  $('#fruit').hide();
-  $('#chase').hide();
-  $('#race').hide();
-  $('#follow').hide();
-});
+localStorage.setItem('return', "false");
+setInterval(function() { // handles return button within games
+  if (localStorage.getItem('return') === "true") {
+    $("#petStore").hide();
+    $('#petDisplay').show();
+    $('#miniGames').hide();
+    $('#petLog').hide();
+    $('#fruit').hide();
+    $('#chase').hide();
+    $('#race').hide();
+    $('#follow').hide();
+    localStorage.setItem('return', "false");
+  }
+}, 100);
 
 
 var determineBackgroundFromWeather = function() {

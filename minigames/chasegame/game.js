@@ -133,6 +133,11 @@ document.addEventListener('click', function(event){
   }
 });
 
+// adds functionality through iframe to return home
+document.getElementById('returnHome').addEventListener('click', function() {
+  localStorage.setItem('return', "true");
+});
+
 function animate() {
   if (!end) {
     requestAnimationFrame(animate);

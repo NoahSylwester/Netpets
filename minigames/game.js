@@ -201,6 +201,11 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
+// adds functionality through iframe to return home
+document.getElementById('returnHome').addEventListener('click', function() {
+  localStorage.setItem('return', "true");
+});
+
 // define animation function
 function animate() {
   if (!end) {
