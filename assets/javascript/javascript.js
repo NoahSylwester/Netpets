@@ -579,7 +579,7 @@ var petSprite = {
       else if (meat.x <= this.x - 5) {
         this.dx = -5;
       }
-      if (meat.x < this.x + 5 && meat.x > this.x - 5) {
+      if (meat.x < this.x + 50 && meat.x > this.x - 5) {
         meat.exists = false;
         heart.yumText = true;
         heart.hungerText = false;
