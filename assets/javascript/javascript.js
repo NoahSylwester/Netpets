@@ -356,7 +356,10 @@ $('#feed-button').on('click', function (event) {
   var currentTime = new Date();
   var care = "feed";
 
-  database.ref().update({ currentTime: currentTime, type: care, name: petName})
+  database.ref().push({ 
+    currentTime: currentTime, 
+    type: care,
+    name: petName})
 
 });
 $('#love-button').on('click', function (event) {
