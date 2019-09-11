@@ -422,7 +422,7 @@ var canvas = document.querySelector('#pet-area');
 var c = canvas.getContext('2d');
 
 // set canvas dimensions
-canvas.width = 1000;
+canvas.width = window.innerWidth;
 canvas.height = 400;
 
 var groundLevel = 250;
