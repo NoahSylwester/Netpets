@@ -276,7 +276,8 @@ var determineBackgroundFromWeather = function() {
     "./assets/images/cloudy.jpg",
     "./assets/images/rainy.jpg",
     "./assets/images/snowy.jpg",
-    "./assets/images/sunny.jpg"
+    "./assets/images/sunny.jpg",
+    "./assets/images/stormy.jpg"
   ];
   var index = 0;
   switch(weatherCondition) {
@@ -296,7 +297,7 @@ var determineBackgroundFromWeather = function() {
       index = 1;
       break;
     case "Thunderstorm":
-      index = 1;
+      index = 4;
       break;
     default:
       index = 3;
