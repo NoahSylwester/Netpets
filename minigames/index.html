@@ -29,12 +29,25 @@
       color: #ffc107;
       text-shadow: -1px -1px 0 #545454, 1px -1px 0 #545454, -1px 1px 0 #545454, 1px 1px 0 #545454;
     }
+    .game-controls {
+      text-align: center;
+    }
+    #jump {
+      margin: 0 20% 0 20%;
+    }
   </style>
 </head>
 
 <body>
   <h1 class="game-title">Fruit catcher!</h1>
   <canvas></canvas>
+
+  <!-- buttons for mobile -->
+  <div class="game-controls">
+    <button id="left" class="btn btn-warning">←</button>
+    <button id="jump" class="btn btn-warning">Jump!</button>
+    <button id="right" class="btn btn-warning">→</button>
+  </div>
 
   <h1 id="scoreboard-fruit">Score: 0</h1>
   <h1 id="timer-fruit">Time remaining: 30</h1>
