@@ -507,6 +507,10 @@ var petSprite = {
   imgLeft: document.querySelector('#pet-display-sprite-reverse'),
   img: document.querySelector('#pet-display-sprite'),
 
+  // accounting for enlarged spritesheets
+  spriteWidthMultiplier: 20,
+  spriteHeightMultiplier: 20,
+
   draw: function() {
     // determine gait
     if (this.animationDirection === "left") {
@@ -547,7 +551,7 @@ var petSprite = {
     }
 
     // context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
-    c.drawImage(this.img, 24 * this.animationState.frame + (24 * this.animationState.spriteSheetOffset), 0, 25, 100, this.x, this.y, 160, 640);
+    c.drawImage(this.img, 24 * this.spriteWidthMultiplier * this.animationState.frame + (24 * this.spriteWidthMultiplier * this.animationState.spriteSheetOffset), 0, 25 * this.spriteWidthMultiplier, 100 * this.spriteHeightMultiplier, this.x, this.y, 160, 640);
     
     this.animationState.counter ++;
     if (this.animationState.counter > this.animationRate) {
