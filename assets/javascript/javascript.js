@@ -631,7 +631,7 @@ $('#feed-button').on('click', function(event) {
   if (steaks > 0 && meat.exists === false) {
 
     meat.exists = true;
-    meat.x = Math.random() * 700;
+    meat.x = Math.random() * (canvas.width - 100);
     meat.y = 0;
     meat.dy = 0;
     petArr[currentPet].feed(cookie.foodValue);
