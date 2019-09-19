@@ -14,9 +14,14 @@ var score = 0;
 var timeRemaining = 30;
 
 // set canvas dimensions
-canvas.width = 500;
-canvas.height = 500;
+if (window.innerWidth < 600) {
+  canvas.width = window.innerWidth - 2;
+}
+else {
+  canvas.width = 500;
+};
 
+canvas.height = canvas.width;
 
 // define pet sprite
 var petSprite = {
@@ -89,10 +94,10 @@ var petSprite = {
   update: function() {
 
     // bounce off walls
-    if (this.x > 465 || this.x < -15) {
+    if (this.x > (canvas.width * (465/500)) || this.x < -15) {
       this.dx = -this.dx;
     }
-    if (this.y > 468 || this.y < -5) {
+    if (this.y > (canvas.height * (468/500)) || this.y < -5) {
       this.dy = -this.dy;
     }
 
@@ -190,12 +195,24 @@ var cursor = {
   }
 };
 
+// log cursor position
 canvas.addEventListener('mousemove', function(event){
+  console.log(event);
   if(!end) {
     cursor.x = event.offsetX;
     cursor.y = event.offsetY;
   }
 });
+
+// mobile cursor
+canvas.addEventListener('touchmove', function(event){
+  console.log(event);
+  if(!end) {
+    cursor.x = event.changedTouches[0].pageX;
+    cursor.y = event.changedTouches[0].pageY - 50;
+  }
+});
+
 
 // adds functionality through iframe to return home
 document.getElementById('returnHome').addEventListener('click', function() {
