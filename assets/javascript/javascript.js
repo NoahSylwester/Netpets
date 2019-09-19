@@ -768,7 +768,7 @@ function animate() {
   
   requestAnimationFrame(animate);
 
-  c.clearRect(0, 0, innerWidth, innerHeight);
+  c.clearRect(0, 0, innerWidth, 2 * innerHeight);
   petSprite.update();
 
   // cursor.update();
