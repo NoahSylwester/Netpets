@@ -428,6 +428,10 @@ var c = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = 400;
 
+window.addEventListener('resize', function() {
+  canvas.width = window.innerWidth;
+});
+
 var groundLevel = 250;
 
 // define pet sprite
@@ -575,7 +579,7 @@ var petSprite = {
   update: function() {
 
     // bounce off walls
-    if (this.x > innerWidth - 100 || this.x < -15) {
+    if (this.x > canvas.width - 100 || this.x < -15) {
       this.dx = -this.dx;
     }
 
