@@ -23,18 +23,21 @@ var fruitAppearanceRate = .95; // fruit appears (100 - fruitAppearanceRate) perc
 var possibleFruits = document.querySelectorAll('.fruit');
 
 // set canvas dimensions
-canvas.width = 500;
-canvas.height = 500;
+canvas.width = window.innerWidth - 2;
+canvas.height = canvas.width;
 
 // establish key direction variables to store user input
 var isRight = false;
 var isLeft = false;
 var isJump = false;
 
+// establish ground level
+var groundLevel = (467/500) * canvas.height;
+
 // define player sprite object
 var playerSprite = {
-  x: 250,
-  y: 467,
+  x: 0.5 * canvas.width,
+  y: groundLevel,
   dy: 0,
 
   animationRate: 5,
@@ -78,17 +81,17 @@ var playerSprite = {
     if (isLeft === true && this.x > -6) {
       this.x -= 5;
     };
-    if (isJump === true && this.y === 467) {
+    if (isJump === true && this.y === groundLevel) {
       this.dy = 10;
     };
     // update y from dy
     this.y -= this.dy;
     // establish ground
-    if (this.y > 467) {
-      this.y = 467;
+    if (this.y > groundLevel) {
+      this.y = groundLevel;
     }
     // establish gravity
-    else if (this.y < 467) {
+    else if (this.y < groundLevel) {
       this.dy -= 1;
     }
 
@@ -200,6 +203,31 @@ document.addEventListener("keyup", function (event) {
     isJump = false;
   }
 });
+
+//mobile controls
+document.getElementById('left').addEventListener("touchstart", function(event) {
+  event.preventDefault();
+  isLeft = true;
+}, false);
+document.getElementById('left').addEventListener("touchend", function(event) {
+  isLeft = false;
+}, false);
+
+document.getElementById('jump').addEventListener("touchstart", function(event) {
+  event.preventDefault();
+  isJump = true;
+}, false);
+document.getElementById('jump').addEventListener("touchend", function(event) {
+  isJump = false;
+}, false);
+
+document.getElementById('right').addEventListener("touchstart", function(event) {
+  event.preventDefault();
+  isRight = true;
+}, false);
+document.getElementById('right').addEventListener("touchend", function(event) {
+  isRight = false;
+}, false);
 
 // adds functionality through iframe to return home
 document.getElementById('returnHome').addEventListener('click', function() {
