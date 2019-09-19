@@ -428,6 +428,9 @@ canvas.height = 400;
 window.addEventListener('resize', function() {
   canvas.width = window.innerWidth;
 });
+window.addEventListener('orientationchange', function() {
+  canvas.width = window.innerWidth;
+});
 
 var groundLevel = 250;
 
