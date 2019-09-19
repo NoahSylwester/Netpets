@@ -23,7 +23,14 @@ var fruitAppearanceRate = .95; // fruit appears (100 - fruitAppearanceRate) perc
 var possibleFruits = document.querySelectorAll('.fruit');
 
 // set canvas dimensions
-canvas.width = window.innerWidth - 2;
+if (window.innerWidth < 600) {
+  canvas.width = window.innerWidth - 2;
+}
+else {
+  canvas.width = 500;
+  document.querySelector('.game-controls').style.display = "none";
+};
+
 canvas.height = canvas.width;
 
 // establish key direction variables to store user input
