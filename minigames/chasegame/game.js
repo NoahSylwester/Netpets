@@ -13,9 +13,18 @@ var end = false;
 var score = 0;
 var timeRemaining = 30;
 
+var isMobile = false;
+
 // set canvas dimensions
-canvas.width = 500;
-canvas.height = 500;
+if (window.innerWidth < 600) {
+  canvas.width = window.innerWidth - 2;
+  isMobile = true;
+}
+else {
+  canvas.width = 500;
+};
+
+canvas.height = canvas.width;
 
 
 // define pet sprite
@@ -86,10 +95,10 @@ var petSprite = {
   update: function() {
 
     // bounce off walls
-    if (this.x > 465 || this.x < -15) {
+    if (this.x > (465/500) * canvas.width || this.x < -15) {
       this.dx = -this.dx;
     }
-    if (this.y > 468 || this.y < -5) {
+    if (this.y > (468/500) * canvas.height || this.y < -5) {
       this.dy = -this.dy;
     }
 
@@ -106,32 +115,60 @@ var petSprite = {
   }
 };
 
-document.addEventListener('click', function(event){
-  if(!end) {
-    console.log(petSprite.x, event.offsetX, petSprite.y, event.offsetY);
-    // detects position of click relative to sprite
-    if (event.offsetX > petSprite.x && event.offsetX < petSprite.x  + 40 &&
+if (!isMobile) {
+  document.addEventListener('click', function (event) {
+    if (!end) {
+      // detects position of click relative to sprite
+      if (event.offsetX > petSprite.x && event.offsetX < petSprite.x + 40 &&
         event.offsetY > petSprite.y && event.offsetY < petSprite.y + 160) {
         // slow down sprite on catch
         console.log('got em');
-      if (petSprite.dx < 0) {
-        petSprite.dx += 2;
+        if (petSprite.dx < 0) {
+          petSprite.dx += 2;
+        }
+        else if (petSprite.dx > 0) {
+          petSprite.dx -= 2;
+        }
+        if (petSprite.dy < 0) {
+          petSprite.dy += 2;
+        }
+        else if (petSprite.dy > 0) {
+          petSprite.dy -= 2;
+        }
+        // update score
+        score += 1;
+        document.getElementById('scoreboard-chaser').textContent = `Score: ${score}`;
       }
-      else if (petSprite.dx > 0) {
-        petSprite.dx -= 2;
-      }
-      if (petSprite.dy < 0) {
-        petSprite.dy += 2;
-      }
-      else if (petSprite.dy > 0) {
-        petSprite.dy -= 2;
-      }
-      // update score
-      score += 1;
-      document.getElementById('scoreboard-chaser').textContent = `Score: ${score}`;
     }
-  }
-});
+  });
+}
+else {
+  document.addEventListener('touchstart', function (event) {
+    if (!end) {
+      // detects position of click relative to sprite
+      if (event.changedTouches[0].pageX > petSprite.x && event.changedTouches[0].pageX < petSprite.x + 40 &&
+        event.changedTouches[0].pageY > petSprite.y && event.changedTouches[0].pageY < petSprite.y + 160) {
+        // slow down sprite on catch
+        console.log('got em');
+        if (petSprite.dx < 0) {
+          petSprite.dx += 2;
+        }
+        else if (petSprite.dx > 0) {
+          petSprite.dx -= 2;
+        }
+        if (petSprite.dy < 0) {
+          petSprite.dy += 2;
+        }
+        else if (petSprite.dy > 0) {
+          petSprite.dy -= 2;
+        }
+        // update score
+        score += 1;
+        document.getElementById('scoreboard-chaser').textContent = `Score: ${score}`;
+      }
+    }
+  });
+}
 
 // adds functionality through iframe to return home
 document.getElementById('returnHome').addEventListener('click', function() {
