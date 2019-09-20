@@ -44,7 +44,7 @@ var groundLevel = (467/500) * canvas.height;
 // define player sprite object
 var playerSprite = {
   x: 0.5 * canvas.width,
-  y: groundLevel,
+  y: groundLevel - 5,
   dy: 0,
 
   animationRate: 5,
