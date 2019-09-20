@@ -39,12 +39,12 @@ var isLeft = false;
 var isJump = false;
 
 // establish ground level
-var groundLevel = (467/500) * canvas.height;
+var groundLevel = (467/500) * canvas.height - 5;
 
 // define player sprite object
 var playerSprite = {
   x: 0.5 * canvas.width,
-  y: groundLevel - 5,
+  y: groundLevel,
   dy: 0,
 
   animationRate: 5,
