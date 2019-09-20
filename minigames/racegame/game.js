@@ -20,16 +20,42 @@ var end = false;
 var score = 0;
 var timeRemaining = 50;
 
-var finishLine = 700;
+var isMobile = false;
 
 // set canvas dimensions
-canvas.width = 800;
-canvas.height = 200;
+if (window.innerWidth < 600) {
+  canvas.width = window.innerWidth - 2;
+  isMobile = true;
+}
+else {
+  canvas.width = 800;
+  document.querySelector('.game-controls').style.display = "none";
+};
 
+canvas.height = canvas.width/4;
+
+// set finish line
+var finishLine = (7/8) * canvas.width;
+
+
+//decide where pink monster starts on the y axis
+var pinkMonsterYPosition;
+
+if (isMobile) {
+  pinkMonsterYPosition = (15/200) * canvas.height;
+}
+else {
+  pinkMonsterYPosition = (45/200) * canvas.height;
+}
+
+// set pink monster speed to make sure game doesn't get shorter with screen narrowing
+var pinkMonsterSpeed = (0.3/800) * canvas.width;
+
+// define pinkMonster object
 var pinkMonster = {
   x: 45,
-  y: 45,
-  dx: 0.3,
+  y: pinkMonsterYPosition,
+  dx: pinkMonsterSpeed,
   dy: 0,
   counter: 0,
   frame: 0,
@@ -61,11 +87,24 @@ var pinkMonster = {
   }
 };
 
+// define pet sprite starting y position
+var petSpriteYPosition;
+
+if (isMobile) {
+  petSpriteYPosition = (120/200) * canvas.height;
+}
+else {
+  petSpriteYPosition = (120/200) * canvas.height;
+};
+
+// pet speed as pinkMonsterSpeed (they will be equal, setting a new var for clarity)
+var petSpeed = pinkMonsterSpeed
+
 // define pet sprite
 var petSprite = {
 
   x: 50,
-  y: 120,
+  y: petSpriteYPosition,
   dx: 0,
   dy: 0,
   animationRate: 5,
@@ -130,7 +169,7 @@ var petSprite = {
     // update position from velocities
     this.x += this.dx;
     if (this.dx > 0) {
-      this.dx -= 0.01;
+      this.dx -= (0.01/800) * canvas.width;
     }
     else if (this.dx < 0) {
       this.dx = 0;
@@ -145,7 +184,7 @@ var petSprite = {
 var promptText = {
 
   x: petSprite.x + 40,
-  y: 145,
+  y: petSpriteYPosition + 20,
   dx: 0,
   dy: 0,
 
@@ -192,7 +231,7 @@ document.addEventListener('keydown', function(event){
   if(!end) {
       if (event.key === promptText.textChoice) {
         promptText.prompt = "";
-        petSprite.dx += .3;
+        petSprite.dx += petSpeed;
       // update score
       score += 1;
       document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
@@ -201,6 +240,73 @@ document.addEventListener('keydown', function(event){
     }
   }
 );
+
+// mobile controls events
+document.getElementById('left').addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  if(!end) {
+    if ("ArrowLeft" === promptText.textChoice) {
+      promptText.prompt = "";
+      petSprite.dx += petSpeed;
+    // update score
+    score += 1;
+    document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
+    }
+    else {petSprite.dx = 0;}
+  }
+});
+document.getElementById('right').addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  if(!end) {
+    if ("ArrowRight" === promptText.textChoice) {
+      promptText.prompt = "";
+      petSprite.dx += petSpeed;
+    // update score
+    score += 1;
+    document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
+    }
+    else {petSprite.dx = 0;}
+  }
+});
+document.getElementById('up').addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  if(!end) {
+    if ("ArrowUp" === promptText.textChoice) {
+      promptText.prompt = "";
+      petSprite.dx += petSpeed;
+    // update score
+    score += 1;
+    document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
+    }
+    else {petSprite.dx = 0;}
+  }
+});
+document.getElementById('down').addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  if(!end) {
+    if ("ArrowDown" === promptText.textChoice) {
+      promptText.prompt = "";
+      petSprite.dx += petSpeed;
+    // update score
+    score += 1;
+    document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
+    }
+    else {petSprite.dx = 0;}
+  }
+});
+document.getElementById('space').addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  if(!end) {
+    if (" " === promptText.textChoice) {
+      promptText.prompt = "";
+      petSprite.dx += petSpeed;
+    // update score
+    score += 1;
+    document.getElementById('scoreboard-race').textContent = `Score: ${score}`;
+    }
+    else {petSprite.dx = 0;}
+  }
+});
 
 // adds functionality through iframe to return home
 document.getElementById('returnHome').addEventListener('click', function() {

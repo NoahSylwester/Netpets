@@ -206,8 +206,8 @@ canvas.addEventListener('mousemove', function(event){
 
 // mobile cursor
 canvas.addEventListener('touchmove', function(event){
-  console.log(event);
   if(!end) {
+    event.preventDefault();
     cursor.x = event.changedTouches[0].pageX;
     cursor.y = event.changedTouches[0].pageY - 50;
   }

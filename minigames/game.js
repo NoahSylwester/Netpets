@@ -175,7 +175,7 @@ function generateFruit() {
   // determine frequency of fruit appearance
   if (Math.random() > fruitAppearanceRate) {
     // determine fruit stats, include in array
-    fruitsArray.push(new Fruit((Math.random() * 480), -5, 2));
+    fruitsArray.push(new Fruit((Math.random() * canvas.width - 20), -5, 2));
   }
   // update fruits in array
   for (let i = 0; i < fruitsArray.length; i++) {
